@@ -1,7 +1,8 @@
 # CustomSegmentControl
 自定义分段控制器
 自用而已
-+/**
+```objc
+/**
 *被选中的item 从0开始
 */
 #@property (nonatomic,assign)NSInteger selectedIndex;
@@ -33,10 +34,11 @@
 *边框颜色（默认灰色）
 */
 #@property (nonatomic,weak)UIColor *rectColor;
+```objc
 /**
 *frame:
 *items:标题
 *itemFont:标题字体大小
 *return: CTSegmentControl
 */
-#- (instancetype)initWithFrame:(CGRect)frame andItems:(NSArray *)items andItemFont:(UIFont *)itemFont;
+- (instancetype)initWithFrame:(CGRect)frame andItems:(NSArray *)items andItemFont:(UIFont *)itemFont;

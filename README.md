@@ -1,7 +1,7 @@
 # CustomSegmentControl
 自定义分段控制器
 自用而已
-/**
++/**
 *被选中的item 从0开始
 */
 #@property (nonatomic,assign)NSInteger selectedIndex;

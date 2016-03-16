@@ -9,10 +9,7 @@
 #import <UIKit/UIKit.h>
 
 @interface CTSegmentControl : UIView
-/**
- *标题
- */
-@property (nonatomic,strong)NSMutableArray *items;
+
 /**
  *被选中的item 从0开始
  */

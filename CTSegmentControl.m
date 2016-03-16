@@ -9,7 +9,10 @@
 #import "CTSegmentControl.h"
 
 @interface CTSegmentControl ()
-
+/**
+ *标题
+ */
+@property (nonatomic,strong)NSMutableArray *items;
 @end
 
 

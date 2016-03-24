@@ -8,7 +8,22 @@
 
 #import <UIKit/UIKit.h>
 
+@protocol CTSegmentControlDelegate <NSObject>
+
+-(void)segmentControlDidSelectedIndex:(NSInteger)index;
+
+@end
+
+//typedef void(^myBlock)(NSInteger index);
+
 @interface CTSegmentControl : UIView
+
+
+@property (nonatomic,assign)id<CTSegmentControlDelegate>delegate;
+
+//@property (nonatomic,strong) myBlock CurrentIndexblock;
+
+//-(void)currentIndexIs:(myBlock)block;
 
 /**
  *被选中的item 从0开始
@@ -49,5 +64,5 @@
  *return: CTSegmentControl
  */
 - (instancetype)initWithFrame:(CGRect)frame andItems:(NSArray *)items andItemFont:(UIFont *)itemFont;
-
++ (instancetype)CTSegmentControlWithFrame:(CGRect)frame andItems:(NSArray *)items andItemFont:(UIFont *)itemFont;
 @end

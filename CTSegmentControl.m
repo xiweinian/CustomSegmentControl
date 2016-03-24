@@ -79,6 +79,11 @@
         btn.titleLabel.font = _itemFont;
     }
 }
++ (instancetype)CTSegmentControlWithFrame:(CGRect)frame andItems:(NSArray *)items andItemFont:(UIFont *)itemFont{
+    CTSegmentControl *control = [[CTSegmentControl alloc] initWithFrame:frame andItems:items andItemFont:itemFont];
+
+    return control;
+}
 - (instancetype)initWithFrame:(CGRect)frame andItems:(NSArray *)items andItemFont:(UIFont *)itemFont
 {
     self = [super initWithFrame:frame];
@@ -95,7 +100,6 @@
             [button setTitle:[items objectAtIndex:i] forState:UIControlStateNormal];
             [button setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
             button.titleLabel.font = itemFont;
-//            button.backgroundColor = [UIColor redColor];
             button.tag = 3000+i;
             [button addTarget:self action:@selector(btnClick:) forControlEvents:UIControlEventTouchUpInside];
             [self addSubview:button];
@@ -116,14 +120,8 @@
 }
 -(void)btnClick:(UIButton *)btn{
     self.selectedIndex = btn.tag - 3000;
+    [self.delegate segmentControlDidSelectedIndex:_selectedIndex];
 }
 
-/*
-// Only override drawRect: if you perform custom drawing.
-// An empty implementation adversely affects performance during animation.
-- (void)drawRect:(CGRect)rect {
-    // Drawing code
-}
-*/
 
 @end

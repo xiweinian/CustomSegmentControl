@@ -9,8 +9,8 @@
 #import <UIKit/UIKit.h>
 
 @protocol CTSegmentControlDelegate <NSObject>
-
--(void)segmentControlDidSelectedIndex:(NSInteger)index;
+@optional
+-(void)ctSegmentControlDidSelectedIndex:(NSInteger)index;
 
 @end
 
@@ -63,6 +63,6 @@
  *itemFont:标题字体大小
  *return: CTSegmentControl
  */
-- (instancetype)initWithFrame:(CGRect)frame andItems:(NSArray *)items andItemFont:(UIFont *)itemFont;
-+ (instancetype)CTSegmentControlWithFrame:(CGRect)frame andItems:(NSArray *)items andItemFont:(UIFont *)itemFont;
+- (instancetype)initWithFrame:(CGRect)frame andItems:(NSArray *)items andItemFont:(UIFont *)itemFont andDelegate:(id<CTSegmentControlDelegate>)delegate;
++ (instancetype)CTSegmentControlWithFrame:(CGRect)frame andItems:(NSArray *)items andItemFont:(UIFont *)itemFont andDelegate:(id<CTSegmentControlDelegate>)delegate;
 @end

@@ -79,16 +79,16 @@
         btn.titleLabel.font = _itemFont;
     }
 }
-+ (instancetype)CTSegmentControlWithFrame:(CGRect)frame andItems:(NSArray *)items andItemFont:(UIFont *)itemFont{
-    CTSegmentControl *control = [[CTSegmentControl alloc] initWithFrame:frame andItems:items andItemFont:itemFont];
++ (instancetype)CTSegmentControlWithFrame:(CGRect)frame andItems:(NSArray *)items andItemFont:(UIFont *)itemFont andDelegate:(id<CTSegmentControlDelegate>)delegate{
+    CTSegmentControl *control = [[CTSegmentControl alloc] initWithFrame:frame andItems:items andItemFont:itemFont andDelegate:delegate];
 
     return control;
 }
-- (instancetype)initWithFrame:(CGRect)frame andItems:(NSArray *)items andItemFont:(UIFont *)itemFont
+- (instancetype)initWithFrame:(CGRect)frame andItems:(NSArray *)items andItemFont:(UIFont *)itemFont andDelegate:(id<CTSegmentControlDelegate>)delegate
 {
     self = [super initWithFrame:frame];
     if (self) {
-        
+        self.delegate = delegate;
         _items = [NSMutableArray arrayWithArray:items];
         _startAnimation = YES;
         _rectColor = [UIColor grayColor];
@@ -120,7 +120,7 @@
 }
 -(void)btnClick:(UIButton *)btn{
     self.selectedIndex = btn.tag - 3000;
-    [self.delegate segmentControlDidSelectedIndex:_selectedIndex];
+    [self.delegate ctSegmentControlDidSelectedIndex:_selectedIndex];
 }
 
 
